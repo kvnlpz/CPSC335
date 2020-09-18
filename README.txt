@@ -1,3 +1,5 @@
+README for 335-02-p1-Kids
+
 project 1 Cella Ant 12
 Class Number: 02
 Project Number 1
@@ -25,7 +27,8 @@ EXTERNAL REQUIREMENTS: None, should work on any pc, laptop or mac.
 
 SETUP AND INSTALLATION: 
  1. Extract the contents of the .zip folder. 
- 2. Double click on the index.html file. The program should open and run automatically when opened. 
+ 2. Double click on the index.html file. As long as there is an available we browser, the
+      program should open and run automatically when opened. 
  
 
 FEATURES:
