@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="eng">
+<head>
+    <title>Project 1</title>
+    <link href="../files/styles.css" rel="stylesheet">
+</head>
+<body><h1>Cella Ant 12 Project</h1>
+
+<canvas height="738" id="grid" width="738"></canvas>
+
+</body>
+<script src="../files/animator.js"></script>
+
+<script>
+    let canvas = document.getElementById("grid");
+    let context = canvas.getContext("2d");
+    let begState = 0;
+    let begDirection = 3;
+    let centerPoint = 369;
+    let moves = 1000;
+    let colors = ['black', 'red', 'yellow', 'blue'];
+    draw_grid(context, 41, 41, 'white');
+    drawTriangleWest(context, centerPoint, centerPoint);
+    rotate(context, begState, begDirection, centerPoint, centerPoint, colors, moves);
+</script>
+</html>
