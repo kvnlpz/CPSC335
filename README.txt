@@ -23,6 +23,8 @@ Contents:
   
   File styles.css. Placement and style of the font. Setting background color.
   
+  File ComplexityOrder.doc. Describing the Big-O algorithm
+  
 EXTERNAL REQUIREMENTS: None, should work on any pc, laptop or mac.
 
 SETUP AND INSTALLATION: 
@@ -38,3 +40,5 @@ FEATURES:
   
 BUGS: 
   No known bugs at the moment
+  
+REFERENCES: Thank you to Professor Siska and Rosetta Code for being references in this project. 
