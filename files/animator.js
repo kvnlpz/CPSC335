@@ -109,13 +109,15 @@ function rotate(ctxz, currentState, direction, min, maj, colors, numMoves) {
         currentState = 2;
     } else if (r === 0 && g === 0 && (b === 128 || b === 255)) { //blue
         currentState = 3;
+    } else if (r === 0 && (g === 128 || g === 255) && b === 0) { //green
+        currentState = 4;
     }
     // draws the square on the grid
     drawSquare(ctxz, min, maj, colors[++currentState]);
     currentState--;
     //checks which direction to turn
     switch (true) {
-        case (currentState === 2 || currentState === 3):
+        case (currentState === 0 || currentState === 3 || currentState === 4):
             // turn left
             if (direction > 0) {
                 direction--;
@@ -123,7 +125,7 @@ function rotate(ctxz, currentState, direction, min, maj, colors, numMoves) {
                 direction = 3;
             }
             break;
-        case (currentState === 0 || currentState === 1):
+        case (currentState === 1 || currentState === 2):
             // turn right
             if (direction < 3) {
                 direction++;
