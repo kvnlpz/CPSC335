@@ -38,7 +38,7 @@ FEATURES:
   No start and stop feature.
   Does not jump to square when clicked on.
   
-BUGS: 
-  No known bugs at the moment
+BUGS/ISSUES: 
+  infinite loop if we just change the color using the array and currentState. We used ++currentState instead and it works but can't find out why.
   
 REFERENCES: Thank you to Professor Siska and Rosetta Code for being references in this project. 
