@@ -1,3 +1,6 @@
+// Filename: animator.js
+// Description: This file holds all the code for the cella ant algorithm
+
 //draws the triangle facing left
 function drawTriangleWest(ctxz, min, maj) {
     ctxz.save();
@@ -61,6 +64,7 @@ function drawTriangleSouth(ctxz, min, maj) {
 //draws a grid
 function draw_grid(ctxz, min, maj, stroke_) {
     ctxz.save();
+    //setting the grid size
     let width = ctxz.canvas.width;
     let height = ctxz.canvas.height;
     for (let ix = 0; ix < width; ix += width / min) {
@@ -90,33 +94,37 @@ function drawSquare(ctxz, min, majo, color) {
     ctxz.restore();
 }
 
+//rotater function
 function rotate(ctxz, currentState, direction, min, maj, colors, numMoves) {
     ctxz.save();
+    //if there's no more moves left, just stop
     if (numMoves === 0) {
         return;
     }
+    //decrements the amount of moves left
     numMoves--;
-    // records current color
-    const space = ctxz.getImageData(min - 8, maj - 8, 1, 1);
-    let r = space.data[0];
-    let g = space.data[1];
-    let b = space.data[2];
-    if (r === 0 && g === 0 && b === 0) {   //black
+    //get the current color of the cell
+    const cell = ctxz.getImageData(min - 8, maj - 8, 1, 1);
+    let r = cell.data[0];
+    let g = cell.data[1];
+    let b = cell.data[2];
+    //for r,g,b, needed to use 128 as well because with 255 alone it does not always get recognized
+    if (r === 0 && g === 0 && b === 0) {   // black
         currentState = 0;
-    } else if ((r === 128 || r === 255) && g === 0 && b === 0) { //red
+    } else if ((r === 128 || r === 255) && g === 0 && b === 0) { // red
         currentState = 1;
-    } else if ((r === 128 || r === 255) && (g === 128 || g === 255) && b === 0) { //yellow
+    } else if ((r === 128 || r === 255) && (g === 128 || g === 255) && b === 0) { // yellow
         currentState = 2;
-    } else if (r === 0 && g === 0 && (b === 128 || b === 255)) { //blue
+    } else if (r === 0 && g === 0 && (b === 128 || b === 255)) { // blue
         currentState = 3;
-    } else if (r === 0 && (g === 128 || g === 255) && b === 0) { //green
+    } else if (r === 0 && (g === 128 || g === 255) && b === 0) { // green
         currentState = 4;
     }
-    // draws the square on the grid
-    drawSquare(ctxz, min, maj, colors[++currentState]);
-    currentState--;
-    //checks which direction to turn
+    // draw the square on the grid
+    drawSquare(ctxz, min, maj, colors[++currentState]); // infinite loop with currentState alone
+    //now check which direction to turn
     switch (true) {
+        //check the color of the cell (currentState is changed based off color)
         case (currentState === 0 || currentState === 3 || currentState === 4):
             // turn left
             if (direction > 0) {
@@ -134,7 +142,7 @@ function rotate(ctxz, currentState, direction, min, maj, colors, numMoves) {
             }
             break;
     }
-    //moves the triangle to new direction
+    //move the triangle to new direction
     switch (direction) {
         case 0:
             maj -= 18;
@@ -153,7 +161,7 @@ function rotate(ctxz, currentState, direction, min, maj, colors, numMoves) {
             drawTriangleWest(ctxz, min, maj);
     }
     ctxz.restore();
-    //make it run every 50ms
-    setTimeout(rotate, 50, ctxz, currentState, direction, min, maj, colors, numMoves);
+    //10 ms between movements so we can see the movements finish faster
+    setTimeout(rotate, 10, ctxz, currentState, direction, min, maj, colors, numMoves);
 
 }
