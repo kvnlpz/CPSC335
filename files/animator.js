@@ -1,5 +1,12 @@
 // Filename: animator.js
 // Description: This file holds all the code for the cella ant algorithm
+/*Authors: Kevin Lopez*/
+/*cwid: 889508465*/
+/*email: kevinlopez8554@csu.fullerton.edu*/
+
+/*Emiliano Arranaga*/
+/*email: earranaga1202@csu.fullerton.edu*/
+/*cwid: 888006756*/
 
 //draws the triangle facing left
 function drawTriangleWest(ctxz, min, maj) {
