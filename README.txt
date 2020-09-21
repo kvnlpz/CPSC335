@@ -16,12 +16,14 @@ Contents:
   
   File README.txt
   
-  File index.html. Double click to start running
+  Folder code, contains the index.html file
+     File index.html. Double click to start running
   
-  File animator.js. This shows the behavior of the ant. This will have the setup for which direction the ant will go when the color changes. 
-    It also shows how the ant will be changing its direction on screen. The point of the triangle is the direction the ant will be moving in.
+  Folder files, contains file animator.js and dile styles.css
+     File animator.js. This shows the behavior of the ant. This will have the setup for which direction the ant will go when the color changes. 
+        It also shows how the ant will be changing its direction on screen. The point of the triangle is the direction the ant will be moving in.
   
-  File styles.css. Placement and style of the font. Setting background color.
+     File styles.css. Placement and style of the font. Setting background color.
   
   File ComplexityOrder.doc. Describing the Big-O algorithm
   
